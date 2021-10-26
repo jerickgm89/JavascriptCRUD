@@ -15,7 +15,10 @@ var aplicacion = new (function () {
                     datos += "<td>" + empleado.id + "</td>";
                     datos += "<td>" + empleado.nombre + "</td>";
                     datos += "<td>" + empleado.correo + "</td>";
-                    datos += "<td>" + empleado.id + "</td>";
+                    datos +=
+                        '<td><div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.Borrar(' +
+                        empleado.id +
+                        ')">Borrar</button></div></td>';
 
                     datos += "<tr>";
                 });
@@ -34,15 +37,26 @@ var aplicacion = new (function () {
         };
 
         fetch(url + "?insertar=1", {
-            method: "POST",
-            body: JSON.stringify(datosEnviar),
+            method: "post",
+            body: json.stringify(datosenviar),
         })
             .then((respuesta) => respuesta.json())
+            .then((datosrespuesta) => {
+                console.log("insertados");
+                this.leer();
+            })
+            .catch(console.log);
+    };
+    this.Borrar = function (id) {
+        console.log(id);
+
+        fetch(url + "?borrar=" + id)
+            .then((respuesta) => respuesta.json())
             .then((datosRespuesta) => {
-                console.log("Insertados");
                 this.Leer();
             })
             .catch(console.log);
     };
 })();
+
 aplicacion.Leer();
