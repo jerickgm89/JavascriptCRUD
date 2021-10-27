@@ -26,7 +26,6 @@ var aplicacion = new (function () {
                 return (this.empleados.innerHTML = datos);
             })
             .catch(console.log);
-        //datos ="<tr><td>1</td><td>JErick</td><td>jerickgm89@gmail.com</td><td>Editar | Borrar</td></tr>";
     };
     this.Agregar = function () {
         console.log(nombre.value);
@@ -38,12 +37,12 @@ var aplicacion = new (function () {
 
         fetch(url + "?insertar=1", {
             method: "post",
-            body: json.stringify(datosenviar),
+            body: JSON.stringify(datosEnviar),
         })
             .then((respuesta) => respuesta.json())
-            .then((datosrespuesta) => {
+            .then((datosRespuesta) => {
                 console.log("insertados");
-                this.leer();
+                this.Leer();
             })
             .catch(console.log);
     };
