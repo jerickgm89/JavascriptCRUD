@@ -1,5 +1,9 @@
+var url = "http://localhost/empleados/";
+
+var modal = new bootstrap.Modal(document.getElementById('modelId'),{keyboard:false});
+
 var aplicacion = new (function () {
-    var url = "http://localhost/empleados/";
+    
     this.nombre = document.getElementById("nombre");
     this.correo = document.getElementById("correo");
     this.empleados = document.getElementById("empleados");
@@ -16,7 +20,9 @@ var aplicacion = new (function () {
                     datos += "<td>" + empleado.nombre + "</td>";
                     datos += "<td>" + empleado.correo + "</td>";
                     datos +=
-                        '<td><div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.Borrar(' +
+                        '<td><div class="btn-group" role="group" aria-label=""><button type="button" class="btn btn-info" onclick="aplicacion.Editar(' +
+                        empleado.id +
+                        ')">Editar</button><button type="button" class="btn btn-danger" onclick="aplicacion.Borrar(' +
                         empleado.id +
                         ')">Borrar</button></div></td>';
 
@@ -56,6 +62,10 @@ var aplicacion = new (function () {
             })
             .catch(console.log);
     };
+    this.Editar= function (id){
+        console.log(id);
+        modal.show();
+    }
 })();
 
 aplicacion.Leer();
