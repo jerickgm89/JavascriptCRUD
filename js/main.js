@@ -1,9 +1,10 @@
 var url = "http://localhost/empleados/";
 
-var modal = new bootstrap.Modal(document.getElementById('modelId'),{keyboard:false});
+var modal = new bootstrap.Modal(document.getElementById("modelId"), {
+    keyboard: false,
+});
 
 var aplicacion = new (function () {
-    
     this.nombre = document.getElementById("nombre");
     this.correo = document.getElementById("correo");
     this.empleados = document.getElementById("empleados");
@@ -62,9 +63,12 @@ var aplicacion = new (function () {
             })
             .catch(console.log);
     };
-    this.Editar= function (id){
+    this.Editar = function (id) {
         console.log(id);
         modal.show();
+    };
+    this.Actualizar = function (id) {
+        console.log("Actualizar")
     }
 })();
 
