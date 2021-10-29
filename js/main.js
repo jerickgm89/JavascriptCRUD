@@ -7,6 +7,10 @@ var modal = new bootstrap.Modal(document.getElementById("modelId"), {
 var aplicacion = new (function () {
     this.nombre = document.getElementById("nombre");
     this.correo = document.getElementById("correo");
+
+    this.nombre = document.getElementById("nombre");
+    this.correo = document.getElementById("correo");
+    
     this.empleados = document.getElementById("empleados");
 
     this.Leer = function () {
