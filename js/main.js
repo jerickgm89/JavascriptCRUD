@@ -5,8 +5,13 @@ var modal = new bootstrap.Modal(document.getElementById("modelId"), {
 });
 
 var aplicacion = new (function () {
+    this.idEditar = document.getElementById("idEditar");
+    this.nombreEditar = document.getElementById("nombreEditar");
+    this.correoEditar = document.getElementById("correoEditar");
+
     this.nombre = document.getElementById("nombre");
     this.correo = document.getElementById("correo");
+
     this.empleados = document.getElementById("empleados");
 
     this.Leer = function () {
@@ -65,6 +70,18 @@ var aplicacion = new (function () {
     };
     this.Editar = function (id) {
         console.log(id);
+
+        fetch(url + "?consultar=" + id)
+        .then((respuesta) => respuesta.json())
+        .then((datosRespuesta) => {
+            console.log(datosRespuesta);
+            this.nombreEditar.value="Jorge";
+            this.idEditar.value="15";
+            this.correoEditar.value="jerickgm@gmail.com";
+        })
+        .catch(console.log);
+
+
         modal.show();
     };
     this.Actualizar = function (id) {
