@@ -28,18 +28,18 @@
                             <div class="modal-body">
                                 <div class="mb-3">
                                     <label for="" class="form-label">ID: </label>
-                                    <input type="text" class="form-control" name="" id="" aria-describedby="helpId"
+                                    <input readonly type="text" class="form-control" name="idEditar" id="idEditar" aria-describedby="helpId"
                                         placeholder="" />
                                 </div>
                                 <div class="mb-3">
                                     <label for="" class="form-label">Nombre:</label>
-                                    <input type="text" class="form-control" name="nombreEditar" id="nombreEditar"
+                                    <input required type="text" class="form-control" name="nombreEditar" id="nombreEditar"
                                         aria-describedby="helpId" placeholder="nombre" />
                                 </div>
 
                                 <div class="mb-3">
                                     <label for="correo" class="form-label">Correo:</label>
-                                    <input type="email" class="form-control" name="correoEditar" id="correoEditar"
+                                    <input required type="email" class="form-control" name="correoEditar" id="correoEditar"
                                         aria-describedby="emailHelId" placeholder="correo" />
                                 </div>
                             </div>
@@ -63,13 +63,13 @@
                         <form action="javascript:void(0);" method="post" onsubmit="aplicacion.Agregar()">
                             <div class="mb-3">
                                 <label for="" class="form-label">Nombre:</label>
-                                <input type="text" class="form-control" name="nombre" id="nombre"
+                                <input  required type="text" class="form-control" name="nombre" id="nombre"
                                     aria-describedby="helpId" placeholder="nombre" />
                             </div>
 
                             <div class="mb-3">
                                 <label for="correo" class="form-label">Correo:</label>
-                                <input type="email" class="form-control" name="correo" id="correo"
+                                <input type="email" class="form-control" required name="correo" id="correo"
                                     aria-describedby="emailHelId" placeholder="correo" />
                             </div>
                             <button type="submit" class="btn btn-success">

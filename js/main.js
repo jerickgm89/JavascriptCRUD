@@ -48,7 +48,7 @@ var aplicacion = new (function () {
         };
 
         fetch(url + "?insertar=1", {
-            method: "post",
+            method: "POST",
             body: JSON.stringify(datosEnviar),
         })
             .then((respuesta) => respuesta.json())
@@ -74,18 +74,37 @@ var aplicacion = new (function () {
         fetch(url + "?consultar=" + id)
         .then((respuesta) => respuesta.json())
         .then((datosRespuesta) => {
-            console.log(datosRespuesta);
-            this.nombreEditar.value="Jorge";
-            this.idEditar.value="15";
-            this.correoEditar.value="jerickgm@gmail.com";
+            
+            this.nombreEditar.value=datosRespuesta[0]['nombre'];
+            this.idEditar.value=datosRespuesta[0]['id'];
+            this.correoEditar.value=datosRespuesta[0]['correo'];
         })
         .catch(console.log);
 
 
         modal.show();
     };
+
     this.Actualizar = function (id) {
-        console.log("Actualizar")
+        
+        var datosEnviar = {
+            id: this.idEditar.value,
+            nombre: this.nombreEditar.value,
+            correo: this.correoEditar.value,
+        };
+
+        fetch(url + "?actualizar=1", {
+            method: "POST",
+            body: JSON.stringify(datosEnviar),
+        })
+            .then((respuesta) => respuesta.json())
+            .then((datosRespuesta) => {
+                console.log("Datos Actualizados");
+                this.Leer();
+                modal.hide();
+            })
+            .catch(console.log);
+
     }
 })();
 
