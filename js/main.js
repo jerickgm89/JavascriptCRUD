@@ -83,7 +83,6 @@ var aplicacion = new (function () {
 
 
         modal.show();
-        console.log("comprobando firmas")
     };
 
     this.Actualizar = function (id) {
